@@ -21,15 +21,6 @@ public class MainActivity extends AppCompatActivity implements HeadlinesFragment
                         .commit();
             }
         }
-
-        // 화면 회전 시에 HeadlinesFragment 가 재생성되는 것을 방지
-        if (savedInstanceState == null) {
-            HeadlinesFragment headlinesFragment = new HeadlinesFragment();
-            // headlinesFragment 를 R.id.fragment_container 영역에 추가
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment_container, headlinesFragment)
-                    .commit();
-        }
     }
 
     // HeadlinesFragment 의 기사 제목이 선택되었을 때 호출
@@ -43,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements HeadlinesFragment
             // Argument 로 기사 번호 전달
             Bundle args = new Bundle();
             args.putInt(ArticleFragment.ARG_POSITION, position);
-            articleFragment.setArguments(args);
+            newArticleFragment.setArguments(args);
             // R.id.fragment_container 아이디를 가진 영역의 프래그먼트를 articleFragment 로 교체하고
             // 프래그먼트 매니저의 BackStack 에 쌓는다
             getSupportFragmentManager().beginTransaction()
