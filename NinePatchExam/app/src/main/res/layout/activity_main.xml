@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonBlue"
+        android:background="@drawable/imgbtn_green_states"
+        android:textSize="20sp"
+        android:text="Original"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_height="200dp"
+        android:id="@+id/buttonBlue1"
+        android:background="@drawable/imgbtn_green_states"
+        android:textSize="20sp"
+        android:text="Vertical"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:id="@+id/buttonBlue2"
+        android:background="@drawable/imgbtn_green_states"
+        android:textSize="20sp"
+        android:text="Horizontal"/>
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/buttonBlue3"
+        android:background="@drawable/imgbtn_green_states"
+        android:textSize="20sp"
+        android:text="Horizontal and Vertical"/>
+
+</LinearLayout>
