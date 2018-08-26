@@ -26,4 +26,10 @@
         android:onClick="download"
         android:text="다운로드 시작" />
 
+    <Button
+        android:id="@+id/cancel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="취소"/>
+
 </LinearLayout>
