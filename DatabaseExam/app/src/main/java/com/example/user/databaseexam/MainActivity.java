@@ -36,10 +36,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         ListView listView = (ListView) findViewById(R.id.memo_list);
+
         MemoDbHelper dbHelper = MemoDbHelper.getsInstance(this);
         Cursor cursor = dbHelper.getReadableDatabase().query(MemoContract.MemoEntry.TABLE_NAME, null, null, null, null, null, null);
+
         mAdapter = new MemoAdapter(this, cursor);
         listView.setAdapter(mAdapter);
+
         // 리스트 클릭 시 메모 내용 표시
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -66,14 +69,14 @@ public class MainActivity extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 builder.setTitle("메모 삭제");
                 builder.setMessage("메모를 삭제하시겠습니까?");
-                builder.setPositiveButton("삭제", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("삭제",     new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         SQLiteDatabase db = MemoDbHelper.getsInstance(MainActivity.this).getWritableDatabase();
                         int deletedCount = db.delete(MemoContract.MemoEntry.TABLE_NAME, MemoContract.MemoEntry._ID + " = " + deleteId, null);
                         if (deletedCount == 0) {
                             Toast.makeText(MainActivity.this, "삭제에 문제가 발생하였습니다", Toast.LENGTH_SHORT).show();
-                        }else{
+                        } else {
                             mAdapter.swapCursor(getMemoCursor());
                             Toast.makeText(MainActivity.this, "메모가 삭제되었습니다", Toast.LENGTH_SHORT).show();
                         }
@@ -84,13 +87,16 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
     }
+
     private Cursor getMemoCursor() {
         MemoDbHelper dbHelper = MemoDbHelper.getsInstance(this);
         return dbHelper.getReadableDatabase().query(MemoContract.MemoEntry.TABLE_NAME, null, null, null, null, null, MemoContract.MemoEntry._ID + " DESC");
     }
+
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         // 메모가 정상적으로 삽입되었다면, 메모 목록을 갱신
         if (requestCode == REQUEST_CODE_INSERT && resultCode == RESULT_OK) {

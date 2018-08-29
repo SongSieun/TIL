@@ -39,6 +39,7 @@ public class MemoActivity extends AppCompatActivity {
         contentValues.put(MemoContract.MemoEntry.COLUMN_NAME_TITLE, title);
         contentValues.put(MemoContract.MemoEntry.COLUMN_NAME_CONTENTS, content);
         SQLiteDatabase db = MemoDbHelper.getsInstance(this).getWritableDatabase();
+
         if (mMemoId == -1) {
             // DB에 저장하는 처리
             long newRowId = db.insert(MemoContract.MemoEntry.TABLE_NAME, null, contentValues);
