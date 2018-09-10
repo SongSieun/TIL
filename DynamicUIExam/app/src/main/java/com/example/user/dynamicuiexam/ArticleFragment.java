@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 /**
- * HeadlinesFragment 를 클릭했을 때 기사를 표시할 프래그먼트
+ * HeadlinesFragment 를 클릭했을 때 제목를 표시할 프래그먼트
  */
 
 public class ArticleFragment extends Fragment {
