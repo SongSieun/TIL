@@ -11,13 +11,15 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.text.format.DateFormat;
 import android.widget.TimePicker;
+
 import java.util.Calendar;
 
-public class TimePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener{
+public class TimePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener {
     private AlarmManager alarmManager;
+
     @NonNull
     @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState){
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
         // 알람 매니저 인스턴스 얻기
         alarmManager = (AlarmManager) getContext().getSystemService(Context.ALARM_SERVICE);
         // 현재 시간으로 타임 피커를 설정
@@ -27,6 +29,7 @@ public class TimePickerFragment extends DialogFragment implements TimePickerDial
         // 타임 피커 다이얼로그를 현재 시간 설정으로 생성하고 반환
         return new TimePickerDialog(getContext(), this, hour, minute, DateFormat.is24HourFormat(getContext()));
     }
+
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
         // 설정된 시간
