@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">NotificationExam</string>
+    <string name="removealarm">알림 제거</string>
+    <string name="addalarm">알림 생성</string>
+</resources>
