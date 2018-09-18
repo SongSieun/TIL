@@ -26,14 +26,15 @@ public class MyService extends Service {
         }
     }
 
-    @Override
-    public IBinder onBind(Intent intent) {
-        return mBinder;
-    }
-
     // 바인드된 컴포넌트에 카운팅 변숫값 제공
     public int getmCount() {
         return mCount;
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Log.d(TAG, "onCreate: ");
     }
 
     @Override
@@ -57,7 +58,7 @@ public class MyService extends Service {
                             break;
                         }
                         // 1초마다 로그 남기기
-                        Log.d("My Service", "서비스 동작 중" + mCount);
+                        Log.d("MyService", "서비스 동작 중" + mCount);
                     }
                 }
             };
@@ -80,8 +81,19 @@ public class MyService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
-        // TODO: Return the communication channel to the service.
-        throw new UnsupportedOperationException("Not yet implemented");
+        Log.d(TAG, "onBind: ");
+        return mBinder;
+    }
+
+    @Override
+    public boolean onUnbind(Intent intent) {
+        Log.d(TAG, "onUnbind: ");
+        return super.onUnbind(intent);
+    }
+
+    // 바인드된 컴포넌트에 카운팅 변숫값 제공
+    public int getCount() {
+        return mCount;
     }
 
     private void startForegroundService() {
