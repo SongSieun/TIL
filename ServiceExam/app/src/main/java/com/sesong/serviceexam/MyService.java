@@ -20,8 +20,9 @@ public class MyService extends Service {
 
     public MyService() {
     }
-    public class MyBinder extends Binder{
-        public MyService getService(){
+
+    public class MyBinder extends Binder {
+        public MyService getService() {
             return MyService.this;
         }
     }
@@ -51,7 +52,7 @@ public class MyService extends Service {
                         try {
                             mCount++;
                             // 1초 마다 쉬기
-                            Thread.sleep(1000);
+                            Thread.sleep(500);
                         } catch (InterruptedException e) {
                             // 스레드에 인터럽트가 걸리면
                             // 오래 걸리는 처리 종료
