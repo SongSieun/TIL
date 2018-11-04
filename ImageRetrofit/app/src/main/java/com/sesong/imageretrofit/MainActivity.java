@@ -8,6 +8,8 @@ import android.util.Log;
 import com.google.gson.JsonObject;
 
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -29,6 +31,20 @@ public class MainActivity extends AppCompatActivity {
 
         RetrofitService retrofitService = retrofit.create(RetrofitService.class);
         Call<JsonObject> response = retrofitService.combinations(token, title, image, combination, type);
+        response.enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                Log.d("Response (body)", String.valueOf(response.body()));
+                Log.d("Response (code)", String.valueOf(response.code()));
+                Log.d("Response (message)", String.valueOf(response.message()));
+                Log.d("Response (isSucce)", String.valueOf(response.isSuccessful()));
+            }
+
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+
+            }
+        });
     }
 
     @Override
