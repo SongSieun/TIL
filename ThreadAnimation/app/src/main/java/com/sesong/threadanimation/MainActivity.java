@@ -30,7 +30,9 @@ public class MainActivity extends AppCompatActivity {
             super(context);
             SurfaceHolder holder = getHolder();
             holder.addCallback(this);
+
             thread = new GThread(holder);  // 그리기 Thread 생성
+
             for (int i = 0; i < 10; i++)              // Ball 생성
                 basket[i] = new Ball(20);
         }
@@ -59,37 +61,37 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
-    }
 
-    public class GThread extends Thread {
-        private boolean mRun = false;
-        private SurfaceHolder mSurfaceHolder;
+        public class GThread extends Thread {
+            private boolean mRun = false;
+            private SurfaceHolder mSurfaceHolder;
 
-        // 생성자  : surfaceView holder 연결
-        public GThread(SurfaceHolder surfaceHolder) {
-            mSurfaceHolder = surfaceHolder;
-        }
+            // 생성자  : surfaceView holder 연결
+            public GThread(SurfaceHolder surfaceHolder) {
+                mSurfaceHolder = surfaceHolder;
+            }
 
-        @Override
-        public void run() {
-            while (mRun) {
-                Canvas c = null;
-                try {
-                    c = mSurfaceHolder.lockCanvas(null);
-                    c.drawColor(Color.BLACK);   // 배경 그리기
-                    synchronized (mSurfaceHolder) {
-                        for (Ball b : basket)           // Ball 그리기
-                            b.paint(c);
+            @Override
+            public void run() {
+                while (mRun) {
+                    Canvas c = null;
+                    try {
+                        c = mSurfaceHolder.lockCanvas(null);
+                        c.drawColor(Color.BLACK);   // 배경 그리기
+                        synchronized (mSurfaceHolder) {
+                            for (Ball b : basket)           // Ball 그리기
+                                b.paint(c);
+                        }
+                    } finally {
+                        if (c != null)
+                            mSurfaceHolder.unlockCanvasAndPost(c);
                     }
-                } finally {
-                    if (c != null)
-                        mSurfaceHolder.unlockCanvasAndPost(c);
                 }
             }
-        }
 
-        public void setRunning(boolean b) {
-            mRun = b;
+            public void setRunning(boolean b) {
+                mRun = b;
+            }
         }
     }
 
@@ -109,12 +111,15 @@ public class MainActivity extends AppCompatActivity {
         // Ball의 위치 정하기와 해당위치에서 그리기
         public void paint(Canvas g) {
             Paint paint = new Paint();
+
             if (x < diameter || x > (WIDTH - 300))
                 xInc = -xInc;     // 좌우 경계에서 방향 전환
             if (y < diameter || y > (HEIGHT - 300))
                 yInc = -yInc;     // 상하 경계에서 방향 전환
+
             x += xInc;
             y += yInc;
+
             paint.setColor(Color.RED);
             g.drawCircle(x, y, diameter, paint);
         }
