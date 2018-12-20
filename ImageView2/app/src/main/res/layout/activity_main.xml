@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <GridLayout
+        android:orientation="horizontal"
+        android:columnCount="3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btnScaleCenter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Center"/>
+
+        <Button
+            android:id="@+id/btnScaleFitCenter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="FitCenter"/>
+
+        <Button
+            android:id="@+id/btnScaleFitEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="FitEnd"/>
+
+        <Button
+            android:id="@+id/btnScaleFitStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="FitStart"/>
+
+        <Button
+            android:id="@+id/btnScaleFitXY"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="FitXY"/>
+
+        <Button
+            android:id="@+id/btnScaleMatrix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Matrix"/>
+    </GridLayout>
+
+    <ImageView
+        android:id="@+id/ImageView"
+        android:layout_width="500dp"
+        android:layout_height="580dp"
+        android:background="#00ff00"
+        android:scaleType="center"
+        android:src="@drawable/images"/>
+
+
+</LinearLayout>

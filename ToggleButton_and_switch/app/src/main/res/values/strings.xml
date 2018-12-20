@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ToggleButton_and_switch</string>
+    <string name="toggle_shift">Toggle_Shift</string>
+    <string name="switch_shift">Switch_Shift</string>
+</resources>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">FastScrollView</string>
+    <string name="label_usefastscroll">고속 스크롤</string>
+</resources>

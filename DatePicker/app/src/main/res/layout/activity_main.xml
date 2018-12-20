@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Switch
+        android:id="@+id/Calemdar_hide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="달력 숨기기"/>
+    <Switch
+        android:id="@+id/year_hide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="연도 숨기기"/>
+    <Switch
+        android:id="@+id/month_hide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="월 숨기기"/>
+    <Switch
+        android:id="@+id/date_hide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="일 숨기기"/>
+
+    <DatePicker
+        android:id="@+id/DatePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
